@@ -1,0 +1,28 @@
+@startuml BaseMemoryInterfaces
+
+' Simple Memory Interface Contracts
+' Core interfaces for reference-based memory operations
+
+interface BaseMemoryInterface {
+    +store(data: Object, category: String, metadata: Map<String, Object>): MemoryReference
+    +retrieve(reference: MemoryReference): Object
+    +delete(reference: MemoryReference): Boolean
+    +exists(reference: MemoryReference): Boolean
+}
+
+interface ReferenceInterface {
+    +createReference(id: String, category: String, metadata: Map<String, Object>): MemoryReference
+    +validateReference(reference: MemoryReference): Boolean
+}
+
+interface QueryInterface {
+    +findByCategory(category: String): List<MemoryReference>
+    +findByMetadata(key: String, value: Object): List<MemoryReference>
+}
+
+' Relationships
+BaseMemoryInterface --> MemoryReference : operates on
+ReferenceInterface --> MemoryReference : manages
+QueryInterface --> MemoryReference : returns
+
+@enduml

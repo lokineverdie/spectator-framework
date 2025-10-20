@@ -1,0 +1,54 @@
+@startuml Simple Memory Operations
+
+!define CLASS_COLOR #F3E5F5
+
+' Core Memory Entry
+class MemoryEntry CLASS_COLOR {
+  +id: string
+  +content: Object
+  +category: string
+  +createdAt: Date
+  +expiresAt: Date
+  --
+  +createReference(): MemoryReference
+  +isExpired(): boolean
+}
+
+' Lightweight Memory Reference
+class MemoryReference CLASS_COLOR {
+  +id: string
+  +category: string
+  +expiresAt: Date
+  --
+  +isExpired(): boolean
+  +serialize(): string
+  {static} +deserialize(data: string): MemoryReference
+}
+
+' Simple Memory Manager
+class SimpleMemoryManager CLASS_COLOR {
+  --
+  +createEntry(content: Object, category: string, ttlSeconds: number): MemoryReference
+  +validateReference(reference: MemoryReference): boolean
+  +cleanupExpired(references: MemoryReference[]): number
+  +generateId(): string
+}
+
+' Relationships
+MemoryEntry --> MemoryReference : creates
+SimpleMemoryManager --> MemoryEntry : creates
+SimpleMemoryManager --> MemoryReference : validates
+
+note right of MemoryReference
+  Lightweight reference for efficient
+  agent communication without context bloat
+end note
+
+note bottom of SimpleMemoryManager
+  Handles basic memory operations:
+  - Creation with automatic reference generation
+  - Simple expiration validation
+  - Basic cleanup of expired references
+end note
+
+@enduml

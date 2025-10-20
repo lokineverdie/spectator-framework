@@ -1,0 +1,17 @@
+@startuml ModuleIntegration
+!theme plain
+
+title Module Integration
+
+component [Orchestrator] as Orch
+component [Module A] as ModA
+component [Module B] as ModB
+component [Shared Data] as Data
+
+Orch --> ModA
+Orch --> ModB
+ModA --> Data
+ModB --> Data
+ModA <--> ModB
+
+@enduml

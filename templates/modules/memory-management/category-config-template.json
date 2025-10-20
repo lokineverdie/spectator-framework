@@ -1,0 +1,29 @@
+{
+  "memoryCategories": {
+    "working": {
+      "name": "Working Memory",
+      "defaultTTL": 3600,
+      "description": "Short-term session data"
+    },
+    "episodic": {
+      "name": "Episodic Memory", 
+      "defaultTTL": 86400,
+      "description": "Conversation history and events"
+    },
+    "semantic": {
+      "name": "Semantic Memory",
+      "defaultTTL": 604800,
+      "description": "Facts and knowledge storage"
+    },
+    "procedural": {
+      "name": "Procedural Memory",
+      "defaultTTL": 2592000,
+      "description": "Workflows and procedures"
+    }
+  },
+  "defaultSettings": {
+    "enableAutoCleanup": true,
+    "cleanupInterval": 3600,
+    "maxMemoryEntries": 1000
+  }
+}

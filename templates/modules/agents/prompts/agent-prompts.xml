@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<agent-prompt>
+  <metadata>
+    <agent-name>{AGENT_NAME}</agent-name>
+    <module-name>{MODULE_NAME}</module-name>
+    <version>{VERSION}</version>
+    <created-date>{CREATED_DATE}</created-date>
+    <last-modified>{LAST_MODIFIED}</last-modified>
+  </metadata>
+
+  <identity>
+    <role>{AGENT_ROLE_DESCRIPTION}</role>
+    <expertise>
+      <domain>{PRIMARY_DOMAIN}</domain>
+      <domain>{SECONDARY_DOMAIN}</domain>
+      <domain>{TERTIARY_DOMAIN}</domain>
+    </expertise>
+    <personality>
+      <trait>{PERSONALITY_TRAIT_1}</trait>
+      <trait>{PERSONALITY_TRAIT_2}</trait>
+      <trait>{PERSONALITY_TRAIT_3}</trait>
+    </personality>
+  </identity>
+
+  <capabilities>
+    <primary-functions>
+      <function name="{FUNCTION_1_NAME}">
+        <description>{FUNCTION_1_DESCRIPTION}</description>
+        <input-format>{FUNCTION_1_INPUT}</input-format>
+        <output-format>{FUNCTION_1_OUTPUT}</output-format>
+      </function>
+      <function name="{FUNCTION_2_NAME}">
+        <description>{FUNCTION_2_DESCRIPTION}</description>
+        <input-format>{FUNCTION_2_INPUT}</input-format>
+        <output-format>{FUNCTION_2_OUTPUT}</output-format>
+      </function>
+      <function name="{FUNCTION_3_NAME}">
+        <description>{FUNCTION_3_DESCRIPTION}</description>
+        <input-format>{FUNCTION_3_INPUT}</input-format>
+        <output-format>{FUNCTION_3_OUTPUT}</output-format>
+      </function>
+    </primary-functions>
+    
+    <tools>
+      <tool name="{TOOL_1_NAME}">
+        <purpose>{TOOL_1_PURPOSE}</purpose>
+        <usage-pattern>{TOOL_1_USAGE}</usage-pattern>
+      </tool>
+      <tool name="{TOOL_2_NAME}">
+        <purpose>{TOOL_2_PURPOSE}</purpose>
+        <usage-pattern>{TOOL_2_USAGE}</usage-pattern>
+      </tool>
+      <tool name="{TOOL_3_NAME}">
+        <purpose>{TOOL_3_PURPOSE}</purpose>
+        <usage-pattern>{TOOL_3_USAGE}</usage-pattern>
+      </tool>
+    </tools>
+  </capabilities>
+
+  <behavior-guidelines>
+    <communication-style>
+      <tone>{COMMUNICATION_TONE}</tone>
+      <formality-level>{FORMALITY_LEVEL}</formality-level>
+      <response-length>{PREFERRED_RESPONSE_LENGTH}</response-length>
+    </communication-style>
+    
+    <decision-making>
+      <approach>{DECISION_APPROACH}</approach>
+      <risk-tolerance>{RISK_TOLERANCE}</risk-tolerance>
+      <escalation-criteria>{ESCALATION_CRITERIA}</escalation-criteria>
+    </decision-making>
+    
+    <error-handling>
+      <strategy>{ERROR_STRATEGY}</strategy>
+      <retry-policy>{RETRY_POLICY}</retry-policy>
+      <fallback-behavior>{FALLBACK_BEHAVIOR}</fallback-behavior>
+    </error-handling>
+  </behavior-guidelines>
+
+  <context-management>
+    <session-state>
+      <variable name="{STATE_VAR_1}" type="{DATA_TYPE_1}" default="{DEFAULT_VALUE_1}"/>
+      <variable name="{STATE_VAR_2}" type="{DATA_TYPE_2}" default="{DEFAULT_VALUE_2}"/>
+      <variable name="{STATE_VAR_3}" type="{DATA_TYPE_3}" default="{DEFAULT_VALUE_3}"/>
+    </session-state>
+    
+    <memory-management>
+      <retention-policy>{MEMORY_RETENTION_POLICY}</retention-policy>
+      <context-window-size>{CONTEXT_WINDOW_SIZE}</context-window-size>
+      <priority-information>{PRIORITY_INFO_TYPES}</priority-information>
+    </memory-management>
+    
+    <data-sources>
+      <source name="{DATA_SOURCE_1}" type="{SOURCE_TYPE_1}" access-pattern="{ACCESS_PATTERN_1}"/>
+      <source name="{DATA_SOURCE_2}" type="{SOURCE_TYPE_2}" access-pattern="{ACCESS_PATTERN_2}"/>
+      <source name="{DATA_SOURCE_3}" type="{SOURCE_TYPE_3}" access-pattern="{ACCESS_PATTERN_3}"/>
+    </data-sources>
+  </context-management>
+
+  <interaction-patterns>
+    <conversation-flow>
+      <phase name="initialization">
+        <description>{INIT_PHASE_DESCRIPTION}</description>
+        <actions>
+          <action>{INIT_ACTION_1}</action>
+          <action>{INIT_ACTION_2}</action>
+          <action>{INIT_ACTION_3}</action>
+        </actions>
+      </phase>
+      
+      <phase name="processing">
+        <description>{PROCESSING_PHASE_DESCRIPTION}</description>
+        <actions>
+          <action>{PROCESSING_ACTION_1}</action>
+          <action>{PROCESSING_ACTION_2}</action>
+          <action>{PROCESSING_ACTION_3}</action>
+        </actions>
+      </phase>
+      
+      <phase name="completion">
+        <description>{COMPLETION_PHASE_DESCRIPTION}</description>
+        <actions>
+          <action>{COMPLETION_ACTION_1}</action>
+          <action>{COMPLETION_ACTION_2}</action>
+          <action>{COMPLETION_ACTION_3}</action>
+        </actions>
+      </phase>
+    </conversation-flow>
+    
+    <response-templates>
+      <template name="success-response">
+        <format>{SUCCESS_RESPONSE_FORMAT}</format>
+        <required-elements>
+          <element>{SUCCESS_ELEMENT_1}</element>
+          <element>{SUCCESS_ELEMENT_2}</element>
+          <element>{SUCCESS_ELEMENT_3}</element>
+        </required-elements>
+      </template>
+      
+      <template name="error-response">
+        <format>{ERROR_RESPONSE_FORMAT}</format>
+        <required-elements>
+          <element>{ERROR_ELEMENT_1}</element>
+          <element>{ERROR_ELEMENT_2}</element>
+          <element>{ERROR_ELEMENT_3}</element>
+        </required-elements>
+      </template>
+      
+      <template name="clarification-request">
+        <format>{CLARIFICATION_FORMAT}</format>
+        <required-elements>
+          <element>{CLARIFICATION_ELEMENT_1}</element>
+          <element>{CLARIFICATION_ELEMENT_2}</element>
+        </required-elements>
+      </template>
+    </response-templates>
+  </interaction-patterns>
+
+  <integration-points>
+    <!-- CRITICAL: This agent communicates ONLY with the orchestrator, never directly with other agents -->
+    <orchestrator-interface>
+      <communication-policy>orchestrator-only</communication-policy>
+      <description>All communication flows through the orchestrator agent. This agent never communicates directly with other tool agents.</description>
+      
+      <command-handling>
+        <command name="{COMMAND_1}" handler="{HANDLER_1}"/>
+        <command name="{COMMAND_2}" handler="{HANDLER_2}"/>
+        <command name="{COMMAND_3}" handler="{HANDLER_3}"/>
+      </command-handling>
+      
+      <event-publishing>
+        <event name="{EVENT_1}" trigger="{TRIGGER_1}"/>
+        <event name="{EVENT_2}" trigger="{TRIGGER_2}"/>
+        <event name="{EVENT_3}" trigger="{TRIGGER_3}"/>
+      </event-publishing>
+      
+      <status-reporting>
+        <metric name="{METRIC_1}" type="{METRIC_TYPE_1}"/>
+        <metric name="{METRIC_2}" type="{METRIC_TYPE_2}"/>
+        <metric name="{METRIC_3}" type="{METRIC_TYPE_3}"/>
+      </status-reporting>
+      
+      <data-requests>
+        <description>When this agent needs data from other agents, it requests through orchestrator</description>
+        <request-format>{DATA_REQUEST_FORMAT}</request-format>
+      </data-requests>
+    </orchestrator-interface>
+    
+    <!-- NO PEER-AGENT COMMUNICATION: Agents never communicate directly with each other -->
+    <peer-agent-communication>
+      <policy>prohibited</policy>
+      <description>Direct peer-to-peer communication is not allowed. All inter-agent communication must go through the orchestrator.</description>
+    </peer-agent-communication>
+  </integration-points>
+
+  <configuration-parameters>
+    <parameter name="{CONFIG_PARAM_1}" type="{PARAM_TYPE_1}" required="{REQUIRED_1}" default="{DEFAULT_1}">
+      <description>{PARAM_1_DESCRIPTION}</description>
+      <validation>{PARAM_1_VALIDATION}</validation>
+    </parameter>
+    
+    <parameter name="{CONFIG_PARAM_2}" type="{PARAM_TYPE_2}" required="{REQUIRED_2}" default="{DEFAULT_2}">
+      <description>{PARAM_2_DESCRIPTION}</description>
+      <validation>{PARAM_2_VALIDATION}</validation>
+    </parameter>
+    
+    <parameter name="{CONFIG_PARAM_3}" type="{PARAM_TYPE_3}" required="{REQUIRED_3}" default="{DEFAULT_3}">
+      <description>{PARAM_3_DESCRIPTION}</description>
+      <validation>{PARAM_3_VALIDATION}</validation>
+    </parameter>
+  </configuration-parameters>
+</agent-prompt>

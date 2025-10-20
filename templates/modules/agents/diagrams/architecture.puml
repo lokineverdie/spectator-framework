@@ -1,0 +1,20 @@
+@startuml ModuleArchitecture
+!theme plain
+
+title Module Architecture
+
+component [Input] as Input
+component [Core Logic] as Core
+component [Data Store] as Data
+component [Output] as Output
+
+cloud "External API" as API
+database "Database" as DB
+
+Input --> Core
+Core --> Data
+Core --> Output
+Data --> DB
+Core --> API
+
+@enduml

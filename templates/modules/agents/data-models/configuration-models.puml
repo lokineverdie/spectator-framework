@@ -1,0 +1,30 @@
+@startuml ModuleConfiguration
+!theme plain
+
+title Module Configuration
+
+class Config {
+  +String name
+  +String environment
+  +Boolean enabled
+  --
+  +Boolean isValid()
+}
+
+class Connection {
+  +String endpoint
+  +Integer timeout
+  --
+  +Boolean connect()
+}
+
+enum Environment {
+  DEV
+  TEST
+  PROD
+}
+
+Config ||--|| Connection
+Config ||--|| Environment
+
+@enduml

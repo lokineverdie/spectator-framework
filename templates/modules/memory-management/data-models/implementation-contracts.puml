@@ -1,0 +1,28 @@
+@startuml ImplementationContracts
+
+' Simple Implementation Contracts
+' Basic concrete classes that implement the memory interfaces
+
+class MemoryStore {
+    +store(data: Object, category: String, metadata: Map<String, Object>): MemoryReference
+    +retrieve(reference: MemoryReference): Object
+    +delete(reference: MemoryReference): Boolean
+    +exists(reference: MemoryReference): Boolean
+}
+
+class ReferenceManager {
+    +createReference(id: String, category: String, metadata: Map<String, Object>): MemoryReference
+    +validateReference(reference: MemoryReference): Boolean
+}
+
+class QueryEngine {
+    +findByCategory(category: String): List<MemoryReference>
+    +findByMetadata(key: String, value: Object): List<MemoryReference>
+}
+
+' Interface Implementation
+MemoryStore ..|> BaseMemoryInterface
+ReferenceManager ..|> ReferenceInterface
+QueryEngine ..|> QueryInterface
+
+@enduml

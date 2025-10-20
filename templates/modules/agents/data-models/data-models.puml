@@ -1,0 +1,30 @@
+@startuml ModuleDataModel
+!theme plain
+
+title Module Data Model
+
+class MainEntity {
+  +String id
+  +String name
+  +String status
+  --
+  +Boolean isValid()
+}
+
+class RelatedEntity {
+  +String id
+  +String type
+  --
+  +String getValue()
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+  PENDING
+}
+
+MainEntity ||--o{ RelatedEntity
+MainEntity ||--|| Status
+
+@enduml

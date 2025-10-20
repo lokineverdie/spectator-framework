@@ -1,0 +1,27 @@
+@startuml MemoryReferenceDataStructures
+
+' Simple Memory Reference Data Structure
+' Lightweight reference to memory entries for efficient agent communication
+
+class MemoryReference {
+    +id: String
+    +category: String
+    +metadata: Map<String, Object>
+    +expiresAt: DateTime
+    +estimatedSize: Integer
+    +contentType: String
+    
+    +MemoryReference(id, category, metadata, expiresAt)
+    +isValid(): Boolean
+    +isExpired(): Boolean
+    +serialize(): String
+    
+    {static} +deserialize(serializedReference: String): MemoryReference
+}
+
+note right of MemoryReference
+    Simple reference structure for
+    efficient memory sharing between agents
+end note
+
+@enduml
