@@ -1,0 +1,46 @@
+@startuml {MODULE_NAME} Architecture
+
+!define ORCHESTRATOR #lightblue
+!define AGENT #lightgreen
+!define TOOL #lightyellow
+!define DATA #lightgray
+
+title {MODULE_NAME} Module Architecture
+
+package "System Components" {
+  [Orchestrator] ORCHESTRATOR
+  [{MODULE_NAME} Agent] AGENT
+  [External Tools] TOOL
+  [Data Storage] DATA
+}
+
+' Communication flows (orchestrator-only pattern)
+Orchestrator --> Agent : sends requests
+Agent --> Orchestrator : returns responses
+Agent --> Tool : uses tools
+Agent --> Data : reads/writes data
+
+' Notes explaining the architecture
+note right of Agent
+  Communicates ONLY with orchestrator
+  Never directly with other agents
+  Follows hub-and-spoke pattern
+end note
+
+note bottom of Orchestrator
+  Central coordination point
+  Manages all agent interactions
+  Maintains session state
+end note
+
+' Example data flow
+note as DataFlow
+  **Data Flow Example:**
+  1. User request → Orchestrator
+  2. Orchestrator → {MODULE_NAME} Agent
+  3. Agent processes using tools
+  4. Agent → Orchestrator (results)
+  5. Orchestrator → User (response)
+end note
+
+@enduml

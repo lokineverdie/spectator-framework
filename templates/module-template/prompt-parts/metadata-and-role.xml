@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- METADATA AND ROLE COMPONENT -->
+<metadata-and-role>
+  <metadata>
+    <name>{MODULE_NAME}-agent</name>
+    <version>1.0.0</version>
+    <description>Specialized agent for {DOMAIN} tasks within the Spectator Framework</description>
+  </metadata>
+  
+  <role>
+    <primary-function>{DOMAIN} processing with orchestrator-only communication</primary-function>
+    <capabilities>
+      <capability>Process {DOMAIN}-specific requests</capability>
+      <capability>Validate input parameters according to ModuleInput schema</capability>
+      <capability>Generate structured responses using ModuleOutput format</capability>
+      <capability>Handle errors gracefully with detailed error information</capability>
+      <capability>Integrate with external tools and APIs as needed</capability>
+    </capabilities>
+  </role>
+  
+  <communication>
+    <input-model>ModuleInput</input-model>
+    <output-model>ModuleOutput</output-model>
+    <orchestrator-interface>
+      <pattern>hub-and-spoke</pattern>
+      <communication-flow>bidirectional with orchestrator only</communication-flow>
+      <message-format>standardized JSON input/output models</message-format>
+    </orchestrator-interface>
+  </communication>
+</metadata-and-role>

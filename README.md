@@ -1,173 +1,128 @@
 # Spectator Framework
 
-A comprehensive framework for creating system-agnostic agent templates through spec-driven development.
+A simple framework for creating system-agnostic agent specifications through spec-driven development.
 
-## Overview
+## What Is This?
 
-Spectator Framework empowers developers to build technology-neutral agent specifications for multi-agent systems. The framework provides templates, guidelines, and best practices for creating robust agent specifications that work across any platform or domain, without being locked into specific technologies or use cases.
+Spectator Framework helps you build technology-neutral agent specifications that work across any platform. Instead of being locked into specific technologies, you create specifications first, then choose implementation technologies later.
 
-## Key Features
+## Core Concepts
 
-### 🎯 Spec-Driven Development
-- **Specification-First Approach**: All development starts with comprehensive specifications
-- **Technology-Neutral Design**: Specifications remain independent of implementation choices
-- **Iterative Refinement**: Structured feedback cycles for specification improvement
+### Multi-Agent Architecture
+- **Orchestrator Agent**: Coordinates all workflow and agent communication
+- **Specialized Agents**: Handle specific tasks (search, analysis, communication, etc.)
+- **Hub-and-Spoke Communication**: Agents only talk to orchestrator, never directly to each other
 
-### 🔧 Multi-Agent System Architecture
-- **Orchestrator Agent**: Central coordination layer managing workflow and agent interactions
-- **Tool Agents**: Specialized agents with domain-specific capabilities and tool sets
-- **Platform Independence**: Works across any implementation platform
-- **Technology Flexibility**: Choose technologies at the right time
-- **Modular Components**: Interchangeable, loosely-coupled specifications
+### Spec-Driven Development
+1. Write specifications using EARS patterns
+2. Create technology-neutral designs
+3. Generate implementation tasks
+4. Choose technologies during implementation
 
-### 📚 Template Library
-- **Reusable Patterns**: Common agent specification templates
-- **Best Practices**: Proven patterns for effective agent design
-- **Quality Assurance**: Automated validation and compliance checking
+### Key Principles
+- **Simplicity First**: Only add complexity when needed
+- **Technology Neutral**: Specifications work with any tech stack
+- **No Assumptions**: Implement only what's explicitly specified
+- **Modular Design**: Independent, testable components
 
-## Framework Components
+## Quick Start
 
-### Core Guidelines
-- **[Module Development Guidelines](MODULE_DEVELOPMENT_GUIDELINES.md)**: Technology-neutral specification patterns
-- **[EARS Compliance System](EARS_COMPLIANCE.md)**: Automated requirements validation
-- **[Testing Framework](TESTING_FRAMEWORK.md)**: AI agent-based testing and validation
-- **No Assumptions Policy**: Prevent over-engineering and assumptions
+### 1. Create a New Specification
+```bash
+# Copy the spec template
+cp -r templates/spec-template .kiro/specs/your-feature-name
 
-### Template System
-- **Agent Specification Templates**: Reusable patterns for common agent types
-- **Module Templates**: Complete module structure with diagrams, data models, and prompts
-- **Spec Templates**: EARS-compliant requirements, design, and task templates
-- **Interface Definitions**: Standardized communication patterns
-- **Validation Framework**: AI agent-based testing and validation
+# Fill out the files:
+# 1. requirements.md - What the system should do (EARS patterns)
+# 2. design.md - How it should work (technology-neutral)
+# 3. tasks.md - Implementation steps
+```
 
-### Quality Assurance
-- **EARS Pattern Validation**: Automated requirements syntax checking
-- **INCOSE Compliance**: Quality rule validation for specifications
-- **Specification Testing**: AI agent-driven validation approaches
+### 2. Create a New Module
+```bash
+# Copy the module template
+cp -r templates/module-template modules/your-module-name
 
-## Getting Started
+# Customize the files:
+# - Replace placeholders with your module name
+# - Update architecture.puml for your design
+# - Modify data-models.puml for your data
+# - Customize agent-prompts.xml for your agent behavior
+```
 
-### 1. Understanding Spec-Driven Development
-Spec-driven development puts comprehensive specifications at the center of the development process:
-- Write detailed requirements using EARS patterns
-- Create technology-neutral designs
-- Generate implementation tasks from specifications
-- Validate specifications before implementation
+### 3. Follow the Framework Rules
+- Read `FRAMEWORK_CORE.md` for core principles
+- Check `DEVELOPMENT_GUIDE.md` for development practices
+- Use EARS patterns for requirements
+- Keep orchestrator-only communication
 
-### 2. Using the Framework
-1. **Start with Requirements**: Use EARS-compliant requirement patterns
-2. **Create System-Agnostic Designs**: Focus on behavior, not implementation
-3. **Generate Implementation Plans**: Break down specifications into actionable tasks
-4. **Validate Continuously**: Use AI agents for specification validation
+### 4. Advanced: Build Modular Prompts (Optional)
+For complex agents, use modular prompt development:
+```bash
+# Build a modular prompt from components
+python build-modular-prompt.py your-agent-name --validate
 
-### 3. Template Usage
-- Browse the template library for common patterns
-- Use `templates/specs/` for Kiro specification workflows
-- Use `templates/modules/module-template/` for complete module structure
-- Customize templates for your specific agent needs
-- Follow framework guidelines for consistency
-- Validate specifications using built-in tools
+# This combines prompt-parts/*.xml files into a final agent prompt
+```
 
-## Framework Structure
+## File Structure
 
 ```
 spectator-framework/
-├── .kiro/
-│   ├── specs/                    # Framework feature specifications
-│   └── steering/                 # Framework governance and guidelines
-├── templates/                    # Reusable agent specification templates
-│   ├── specs/                    # EARS-compliant spec workflow templates
-│   └── modules/module-template/  # Complete module structure template
-├── MODULE_DEVELOPMENT_GUIDELINES.md  # Core development patterns
-├── TESTING_FRAMEWORK.md          # AI agent-based testing guide
-├── EARS_COMPLIANCE.md            # Requirements validation system
-├── PROJECT_STRUCTURE.md          # Detailed project organization
-├── NAMING_CONVENTIONS.md         # Standardized naming patterns
-└── VERSION_CONTROL.md            # Version control organization
+├── templates/                # Ready-to-use templates
+├── modules/                  # Your created modules (when you make them)
+├── README.md                 # This file
+├── FRAMEWORK_CORE.md         # Core principles and architecture
+├── DEVELOPMENT_GUIDE.md      # Development practices and guidelines
+├── CONTRIBUTING.md           # How to contribute
+└── build-modular-prompt.py   # Modular prompt builder tool
 ```
 
-## Core Principles
+## Templates Available
 
-### 1. Simplicity First
-- Keep things simple - only add complexity when needed
-- Minimal viable solutions that work
-- Essential functionality only - avoid over-engineering
-- Simple is better than complex
+### Spec Template (`templates/spec-template/`)
+- **requirements.md**: EARS-compliant requirements template
+- **design.md**: Technology-neutral design template  
+- **tasks.md**: Implementation planning template
 
-### 2. Multi-Agent System Design
-- **Orchestrator Agent**: Central coordination and workflow management
-- **Tool Agents**: Specialized capabilities and domain expertise
-- **Hub-and-Spoke Communication**: Agents communicate only with orchestrator, never directly with each other
-- Modular, interchangeable components
-- Loose coupling through standardized interfaces
+### Module Template (`templates/module-template/`)
+- **README.md**: Usage instructions and customization guide
+- **architecture.puml**: Simple architecture diagram
+- **data-models.puml**: Data structure definitions
+- **agent-prompts.xml**: Agent behavior definitions
 
-### 3. Technology Neutrality
-- Specifications don't assume specific technologies
-- Implementation choices made at appropriate time
-- Support for multiple technology pathways
+### Modular Prompt Builder (`build-modular-prompt.py`)
+For complex agents, build prompts from modular components:
+- Break down complex prompts into focused, reusable components
+- Maintain consistency across agents with shared components
+- Optimize for prompt caching by separating static and dynamic content
 
-### 4. Specification Quality
-- EARS-compliant requirements
-- INCOSE quality standards
-- Automated validation and correction
+### Prompt Optimization Guide (`PROMPT_OPTIMIZATION_GUIDE.md`)
+Comprehensive best practices for major LLM providers:
+- Minimize tokens while maintaining performance
+- Maximize cache hit rates (up to 90% cost reduction)
+- Provider-specific optimization for OpenAI, Claude, and Meta models
 
-### 5. Minimal Assumptions
-- Implement only what's explicitly specified
-- Ask before adding "helpful" features
-- Prevent over-engineering through clear guidelines
+## Example Workflow
+
+1. **Start with a user story**: "As a user, I want to search for jobs"
+2. **Create requirements**: Use EARS patterns to specify what the system should do
+3. **Design the solution**: Create technology-neutral architecture
+4. **Plan implementation**: Break down into actionable tasks
+5. **Choose technologies**: Select appropriate tools for your environment
+6. **Build and test**: Implement following the specifications
+
+## Getting Help
+
+- Check `FRAMEWORK_CORE.md` for core principles
+- Review `DEVELOPMENT_GUIDE.md` for development practices
+- Look at template README files for usage instructions
+- See `CONTRIBUTING.md` for contribution guidelines
 
 ## Benefits
 
-### For Specification Writers
-- **Clear Guidelines**: Structured approach to writing specifications
-- **Quality Assurance**: Automated validation prevents common mistakes
-- **Reusable Templates**: Accelerate specification creation
-
-### For Implementers
-- **Technology Freedom**: Choose the best tools for your context
-- **Clear Requirements**: Well-defined specifications reduce ambiguity
-- **Flexible Architecture**: Adapt specifications to your platform
-
-### For Teams
+- **Technology Freedom**: Choose the best tools for your situation
+- **Clear Requirements**: Well-defined specifications reduce confusion
+- **Modular Design**: Build and test components independently
 - **Consistent Standards**: Unified approach across projects
 - **Reduced Assumptions**: Clear boundaries prevent over-engineering
-- **Iterative Improvement**: Structured feedback and refinement process
-
-## Available Templates
-
-### Specification Templates (`templates/specs/`)
-- **requirements.md**: EARS-compliant requirements with validation checklist
-- **design.md**: Technology-neutral architecture and design structure
-- **tasks.md**: Implementation planning with actionable task breakdown
-
-### Module Template (`templates/modules/module-template/`)
-- **diagrams/**: PlantUML architecture, workflow, and integration diagrams
-- **data-models/**: Class diagrams for entities, configurations, and interfaces
-- **prompts/**: XML agent behavior, conversation flows, and context management
-
-### Quick Start with Templates
-```bash
-# Create a new specification
-mkdir .kiro/specs/your-feature-name
-cp templates/specs/* .kiro/specs/your-feature-name/
-
-# Create a new module
-cp -r templates/modules/module-template modules/your-module-name
-# Then customize placeholders like {MODULE_NAME}, {AGENT_NAME}, etc.
-```
-
-## Contributing
-
-The Spectator Framework is designed to evolve with the community's needs. Contributions are welcome in:
-- New agent specification templates
-- Framework guideline improvements
-- Validation tool enhancements
-- Documentation and examples
-
-## License
-
-[License information to be added]
-
----
-
-**Spectator Framework**: Empowering spec-driven development for system-agnostic agents.

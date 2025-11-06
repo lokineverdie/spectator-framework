@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<agent-definition>
+  <!-- REFERENCE: prompt-parts/metadata-and-role.xml -->
+  <!-- Agent metadata, role definition, and communication interface -->
+  
+  <behavior>
+    <!-- REFERENCE: prompt-parts/core-behavior.xml -->
+    <!-- Core behavioral instructions and response requirements -->
+    
+    <!-- REFERENCE: prompt-parts/communication-rules.xml -->
+    <!-- Communication rules and response formatting requirements -->
+    
+    <!-- Add domain-specific components here -->
+    <!-- Example: -->
+    <!-- REFERENCE: prompt-parts/domain-specific-logic.xml -->
+    <!-- Domain-specific processing logic and strategies -->
+  </behavior>
+</agent-definition>

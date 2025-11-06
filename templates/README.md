@@ -1,156 +1,69 @@
 # Spectator Framework Templates
 
-This directory contains all templates for building modular agent components and specifications following the framework's "keep things simple" principle. This is the central location for all reusable templates in the Spectator Framework.
+Simple, ready-to-use templates following the framework's "simplicity first" principle.
 
-## Directory Structure
+## Available Templates
 
-```
-templates/
-├── specs/                          # Kiro spec workflow templates
-│   ├── requirements.md             # EARS-compliant requirements template
-│   ├── design.md                   # Architecture and design template
-│   └── tasks.md                    # Implementation tasks template
-├── modules/
-│   └── module-template/            # Module-specific artifacts template
-│       ├── diagrams/
-│       │   ├── architecture.puml   # Simple architecture diagram
-│       │   ├── workflows.puml      # Basic workflow diagram
-│       │   └── integration.puml    # Module integration diagram
-│       ├── data-models/
-│       │   ├── data-models.puml    # Core data entities
-│       │   ├── configuration-models.puml  # Configuration classes
-│       │   └── interface-models.puml      # Interface definitions
-│       └── prompts/
-│           ├── agent-prompts.xml   # Agent behavior definitions
-│           ├── conversation-flows.xml     # Conversation management
-│           └── context-management.xml     # Context and memory management
-└── README.md                       # This file
-```
+### Spec Template (`specs/`)
+For creating Kiro specification workflows:
+- **requirements.md**: EARS-compliant requirements template
+- **design.md**: Technology-neutral design template
+- **tasks.md**: Implementation planning template
+
+### Module Template (`module-template/`)
+For creating agent modules:
+- **README.md**: Usage instructions and customization guide
+- **architecture.puml**: Simple architecture diagram
+- **data-models.puml**: Data structure definitions
+- **agent-prompts.xml**: Agent behavior definitions
 
 ## Quick Start
 
-### 1. Create a New Module
+### Create a New Specification
 ```bash
-# Copy the template
-cp -r templates/modules/module-template modules/your-module-name
+# Copy spec template
+cp -r templates/specs .kiro/specs/your-feature-name
 
-# Customize the files
-# - Replace "Module" with your actual module name in all files
-# - Update class names, methods, and fields
-# - Modify diagrams to match your architecture
+# Fill out the files:
+# 1. requirements.md - What should the system do? (EARS patterns)
+# 2. design.md - How should it work? (technology-neutral)
+# 3. tasks.md - Implementation steps
 ```
 
-### 2. Create a New Spec
+### Create a New Module
 ```bash
-# Copy spec templates
-mkdir .kiro/specs/your-feature-name
-cp templates/specs/* .kiro/specs/your-feature-name/
+# Copy module template
+cp -r templates/module-template modules/your-module-name
 
-# Follow the workflow
-# 1. Fill out requirements.md with EARS patterns
-# 2. Create design.md based on requirements
-# 3. Generate tasks.md for implementation
+# Customize the files:
+# - Replace {MODULE_NAME} with your module name
+# - Update architecture.puml for your design
+# - Modify data-models.puml for your data
+# - Customize agent-prompts.xml for your agent
 ```
-
-## Template Files
-
-### Spec Templates (`templates/specs/`)
-- **requirements.md**: EARS-compliant requirements with examples
-- **design.md**: Architecture and design document structure
-- **tasks.md**: Implementation planning with task formatting
-
-### Module Templates (`templates/modules/module-template/`)
-
-#### Diagrams (`diagrams/`)
-- **architecture.puml**: Simple component architecture
-- **workflows.puml**: Basic process flow
-- **integration.puml**: Module integration patterns
-
-#### Data Models (`data-models/`)
-- **data-models.puml**: Core entities and relationships
-- **configuration-models.puml**: Configuration classes
-- **interface-models.puml**: Interface definitions
-
-#### Prompts (`prompts/`)
-- **agent-prompts.xml**: Agent behavior and capabilities
-- **conversation-flows.xml**: Conversation state management
-- **context-management.xml**: Context and memory handling
 
 ## Template Principles
 
-### Simplicity First
-- Minimal viable templates with essential elements only
-- Easy to understand and customize
-- No over-engineering or complex abstractions
+- **Simplicity First**: Minimal viable templates with essential elements only
+- **Technology Neutral**: Work with any implementation platform
+- **Framework Compliant**: Follow orchestrator-only communication and EARS patterns
+- **Easy to Customize**: Clear placeholders and examples
+- **Cache Optimized**: Structured for maximum prompt caching efficiency
 
-### Technology Agnostic
-- Templates work with various implementation platforms
-- No technology-specific assumptions
-- Flexible for different database and workflow engines
+## Customization Process
 
-### Modular Design
-- Independent, testable components
-- Clear interfaces between modules
-- Bottom-up development approach
+1. **Copy template** to your target location
+2. **Replace placeholders** systematically:
+   - `{MODULE_NAME}` → Your module name
+   - `{AGENT_NAME}` → Your agent name  
+   - `{DOMAIN}` → Your domain area
+3. **Update content** for your specific use case
+4. **Validate** PlantUML syntax and XML format
+5. **Test** against framework compliance
 
-## Customization Examples
+## Getting Help
 
-### Data Model
-```puml
-// Original template
-class MainEntity {
-  +String id
-  +String name
-}
-
-// Customized for your domain
-class UserProfile {
-  +String id
-  +String name
-  +String email
-  +String preferences
-}
-```
-
-### Agent Prompt
-```xml
-<!-- Original template -->
-<agent-name>AGENT_NAME</agent-name>
-
-<!-- Customized -->
-<agent-name>DataProcessingAgent</agent-name>
-```
-
-### Requirements
-```markdown
-# Original template
-THE {System_Name} SHALL {response}
-
-# Customized
-THE Data_Processing_System SHALL process user requests within 3 seconds
-```
-
-## Customization Tips
-
-1. **Keep it simple** - Start with minimal changes
-2. **Replace systematically** - Update all placeholder names consistently
-3. **Test early** - Validate PlantUML syntax after changes
-4. **Document changes** - Note customizations for future reference
-
-## Common Replacements
-
-| Template | Replace | With Example |
-|----------|---------|--------------|
-| All files | `Module` | `DataProcessor` |
-| Data models | `MainEntity` | `UserProfile` |
-| Interfaces | `MainInterface` | `ProcessingInterface` |
-| Agents | `AGENT_NAME` | `DataProcessingAgent` |
-| Requirements | `{System_Name}` | `Data_Processing_System` |
-
-## Best Practices
-
-1. **Keep it simple** - Add only what you need
-2. **Start small** - Begin with minimal implementation
-3. **Iterate** - Refine based on actual requirements
-4. **Document** - Update templates based on learnings
-5. **Test independently** - Validate each module separately
+- Each template includes detailed README with usage instructions
+- Check `FRAMEWORK_CORE.md` for core principles
+- Review `DEVELOPMENT_GUIDE.md` for development practices
+- See main README.md for framework overview

@@ -1,0 +1,75 @@
+@startuml {MODULE_NAME} Data Models
+
+title {MODULE_NAME} Data Models
+
+' Standard interface patterns (required)
+class ModuleInput {
+  +String operation
+  +Object parameters
+  +ExecutionContext context
+  +Object metadata
+}
+
+class ModuleOutput {
+  +String status
+  +Object data
+  +ErrorInfo[] errors
+  +Object metadata
+  +String[] nextActions
+}
+
+class ExecutionContext {
+  +String sessionId
+  +String userId
+  +Object userPreferences
+  +String timestamp
+}
+
+class ErrorInfo {
+  +String code
+  +String message
+  +String severity
+  +Boolean recoverable
+  +Object context
+}
+
+' Domain-specific entities (customize these)
+class {MODULE_NAME}Entity {
+  +String id
+  +String name
+  +Object properties
+  +String status
+  +String createdAt
+  +String updatedAt
+}
+
+class {MODULE_NAME}Config {
+  +String configId
+  +Object settings
+  +String[] enabledFeatures
+  +Object limits
+}
+
+' Relationships
+ModuleInput --> ExecutionContext : contains
+ModuleOutput --> ErrorInfo : may contain
+ModuleOutput --> {MODULE_NAME}Entity : may contain
+{MODULE_NAME}Entity --> {MODULE_NAME}Config : uses
+
+' Notes
+note right of ModuleInput
+  Standard input interface
+  All modules must accept this format
+end note
+
+note right of ModuleOutput
+  Standard output interface
+  All modules must return this format
+end note
+
+note bottom of {MODULE_NAME}Entity
+  Replace with your domain entities
+  Examples: UserProfile, JobPosting, etc.
+end note
+
+@enduml
